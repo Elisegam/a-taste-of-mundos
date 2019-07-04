@@ -1,0 +1,48 @@
+@import "./reset.css";
+@import "./nav.css";
+@import "./footer.css";
+@import "./form-recipies.css";
+@import "./button.css";
+@import "./login-signup.css";
+@import "./home.css";
+@import "./filter-bar.css";
+@import "./panel-recipies.css";
+@import "./see-more-about-recipe.css";
+@import "./favourite-foods.css";
+@import "./recipe-manage.css";
+
+@import url("https://fonts.googleapis.com/css?family=Faster+One|Oswald:300,400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Overlock:400,700");
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  perspective: 1000px;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "calibri", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+}
+
+.big-container {
+  display: flex;
+  width: 100%;
+}
+.flexed-item {
+  display: flex;
+}

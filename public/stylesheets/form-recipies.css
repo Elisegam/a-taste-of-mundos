@@ -1,0 +1,64 @@
+.add-form {
+  background: #fff;
+}
+.container-form {
+  width: 700px;
+  margin: auto;
+  margin-top: 80px;
+  font-family: "calibri" !important;
+}
+.title-form {
+  font-size: 2em;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #000;
+}
+.bg-form {
+  padding: 40px 80px;
+}
+.white {
+  color: #fff;
+}
+.input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+  background: transparent;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  padding: 10px 15px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+  margin-bottom: 10px;
+  background: transparent;
+}
+
+.btn-add-img {
+  border: none;
+}
+.submit-btn {
+  cursor: pointer;
+  width: 150px;
+  margin: 20px auto;
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  border: none;
+  padding: 15px;
+  background: #000;
+  color: #fff;
+}
+
+/*::-webkit-input-placeholder {
+  color: #fff;
+}
+*/
