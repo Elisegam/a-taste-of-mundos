@@ -2,17 +2,17 @@ const mongoose = require("mongoose"); // Import mongoose
 const Schema = mongoose.Schema; // Assign the Schema
 
 const RecipeSchema = new Schema({
-  Name: { type: String, required: true },
-  Region: {
+  name: { type: String, required: true },
+  region: {
     type: String,
     required: true,
     default: "Undefined"
   },
-  Description: {
+  description: {
     type: String,
     required: true
   },
-  Ingrédients: {
+  ingrédients: {
     type: Array,
     required: false
   },

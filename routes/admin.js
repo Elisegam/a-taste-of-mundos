@@ -10,12 +10,12 @@ const router = new express.Router();
 // });
 
 //MODEL
-const Recipe = require("../models/Recipe");
+const recipeModel = require("../models/Recipe");
 
 /* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
-});
+// router.get("/", (req, res, next) => {
+//   res.render("index");
+// });
 
 /* GET see-more */
 router.get("/see-more", (req, res, next) => {
@@ -27,17 +27,19 @@ router.get("/add-recipies", (req, res, next) => {
   res.render("add-recipies");
 });
 
-router.post("/add-recipes", (req, res) => {
-  const { Name, Description, Ingrédients, image } = req.body;
-  Recipe.create({
-    Name,
-    Description,
-    Ingrédients,
-    image
-  })
+router.post("/add-recipies", (req, res) => {
+  const { name, description, ingrédients, image } = req.body;
+  recipeModel
+    .create({
+      name,
+      description,
+      ingrédients,
+      image
+    })
     .then(recipe => {
-      res.redirect("/index");
-      // res.render("recipe", { recipe });
+      console.log(recipe);
+      res.redirect("/manage-recipies");
+      res.render("recipe", { recipe });
     })
     .catch(err => {
       res.redirect("/");
@@ -46,14 +48,15 @@ router.post("/add-recipes", (req, res) => {
 
 /* GET Manage recipies */
 router.get("/manage-recipies", (req, res, next) => {
-  Recipe.find().then(recipe => {
+  recipeModel.find().then(recipe => {
     res.render("manage-recipies", { recipe });
   });
 });
 
 //  EDIT recipes
 router.post("/recipe-edit/:id", (req, res) => {
-  Recipe.findById(req.params.id)
+  recipeModel
+    .findById(req.params.id)
     .then(recipe => {
       res.render("recipe-edit", { recipe });
     })
@@ -63,7 +66,8 @@ router.post("/recipe-edit/:id", (req, res) => {
 });
 
 router.post("/recipe-edit/:id", (req, res) => {
-  Recipe.findByIdAndUpdate(req.params.id, req.body)
+  recipeModel
+    .findByIdAndUpdate(req.params.id, req.body)
     .then(recipe => {
       res.render("recipe_edit", { recipe });
       console.log(req);
@@ -75,7 +79,8 @@ router.post("/recipe-edit/:id", (req, res) => {
 
 // DELETE recipes
 router.get("/recipe-delete/:id", (req, res) => {
-  Recipe.findByIdAndDelete(req.params.id, req.body)
+  recipeModel
+    .findByIdAndDelete(req.params.id, req.body)
     .then(recipe => {
       res.redirect("/manage-recipies");
       console.log(req);

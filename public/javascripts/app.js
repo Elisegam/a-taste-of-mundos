@@ -9,6 +9,8 @@ AOS SCROLLING ANIME SCRIPT
 */
 
 var container = document.querySelector(".bloc-favory");
-var msnry = new Masonry(container, {
-  itemSelector: ".fav"
-});
+if (container) {
+  var msnry = new Masonry(container, {
+    itemSelector: ".fav"
+  });
+}

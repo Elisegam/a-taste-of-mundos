@@ -31,6 +31,8 @@ const debug = require("debug")(
 
 const app = express();
 
+app.locals.site_url = process.env.SITE_URL;
+
 // Middleware Setup
 // gui était par ici : ) =>
 app.use(logger("dev"));
