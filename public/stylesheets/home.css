@@ -4,3 +4,12 @@
   margin-top: 50px;
   display: block;
 }
+
+.bg-header {
+  background-image: url("https://i1.wp.com/everwideningcircles.com/wp-content/uploads/2017/08/earth-in-spices.jpg?resize=1600%2C900&ssl=1");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 120vh;
+}

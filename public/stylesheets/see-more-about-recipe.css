@@ -1,8 +1,15 @@
+.see-more-about-recipies {
+  margin-top: 100px;
+}
+.bloc-content-ingre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 .bloc-img-recipe img {
-  width: 100%;
-  height: 600px;
-  margin: auto;
-  display: block;
+  width: 850px;
 }
 
 .bloc-description-recipe {
@@ -38,24 +45,13 @@
   margin-bottom: 20px;
   display: block;
 }
-.bloc-ingredient-country-recipe {
-  position: relative;
-  background-image: url("../images/bg-ingredients.jpg");
-  background-size: cover;
-  color: #fff;
-  height: 700px;
-  overflow: hidden;
-}
 
 .ingredients {
-  position: absolute;
-  top: 50%;
-  right: 80px;
-  transform: translateY(-50%);
   width: 350px;
   opacity: 1 !important;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.7);
+  background: #fff;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 .container-ingredients {
@@ -69,5 +65,5 @@
   margin-bottom: 5px;
   line-height: 1.7;
   text-align: left;
-  color: #fff;
+  color: #111;
 }

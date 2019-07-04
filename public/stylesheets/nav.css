@@ -4,6 +4,11 @@
   margin: auto;
 }
 .nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   background: #fff;
   padding-left: 20px;
   padding-right: 15px;
@@ -37,4 +42,3 @@
 .flex-item {
   display: flex;
 }
-
