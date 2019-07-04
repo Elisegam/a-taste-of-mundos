@@ -12,7 +12,7 @@ authRoutes = require("./routes/auth-route");
 mongoose.Promise = Promise;
 
 mongoose
-  .connect("mongodb://localhost/a-taste-of-the-worldt", {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true
   })
   .then(x => {

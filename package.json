@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www -e hbs,js",
+    "start": "node ./bin/www",
     "dev": "DEBUG=a-taste-of-the-worldt:* nodemon ./bin/www -e hbs,js",
     "dev-windows": "nodemon ./bin/www -e hbs,js"
   },
