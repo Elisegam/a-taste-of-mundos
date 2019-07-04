@@ -8,30 +8,46 @@ AOS.init({
 });
 
 const input = document.getElementById("search-bar");
-const list = document.getElementById("result");
+const list = document.getElementById("results");
+const panel = document.getElementById("panel");
 
 const miamAPI = axios.create({
-  baseURL:
-    "https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json"
+  baseURL: document.getElementById("site_url").content
 });
 
-miamAPI.get().then(res => {
-  const food = Object.values(res.data);
-  displayFood(food);
+// miamAPI.get().then(res => {
+//   const food = res.data;
 
-  input.onkeyup = evt =>
-    showResult(evt.target.value, food).catch(APIerr => console.error(APIerr));
-});
+// });
+
+input.oninput = sendQuery;
+
+function sendQuery(evt) {
+  miamAPI
+    .post("/", { query: evt.target.value })
+    .then(res => {
+      // res = query;
+      // displayFood(res);
+      input.onkeyup = evt => showResult(res.data);
+    })
+    .catch(err => console.log(err));
+}
 
 function displayFood(food) {
+  panel.removeAttribute("hide");
   list.innerHTML = "";
   food.forEach(food => {
-    list.innerHTML += `<li class="item recipe">${food}</li>`;
+    list.innerHTML += `<li class="item recipe">${food}</li>
+    <div class="bloc-recipies">
+          <span class="img-recipies">
+            <img src=${food.image} alt="">
+          </span>
+          <span class="name-recipies">${food.name}</span>
+          <a href="/see-more/:${food.id}" class="see-more-link">See more</a>
+        </div>`;
   });
 }
 
-function showResult(needle, food) {
-  const findInputMatch = food =>
-    Boolean(food.toLowerCase().match(needle.toLowerCase()));
-  displayFood(food.filter(findInputMatch));
+function showResult(results) {
+  console.log(results);
 }
