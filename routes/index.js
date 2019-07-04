@@ -33,9 +33,6 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get("/result", (req, res, next) => {
-  res.render("result");
-});
 /* GET see-moire page */
 router.get("/see-more", (req, res, next) => {
   res.render("see-more");
