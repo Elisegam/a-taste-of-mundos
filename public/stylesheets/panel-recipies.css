@@ -3,8 +3,10 @@
   width: 600px;
   max-width: 100%;
   padding: 40px;
-  margin-top: 18px;
-  background: #272a33;
+  margin-top: 58px;
+  margin-left: -2px;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
 }
 
 .bloc-recipies {

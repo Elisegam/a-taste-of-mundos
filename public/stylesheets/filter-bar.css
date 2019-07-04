@@ -15,4 +15,5 @@
   left: 50%;
   border: 1px solid #f0f0f0;
   transform: translateX(-50%);
+  z-index: 99999;
 }
