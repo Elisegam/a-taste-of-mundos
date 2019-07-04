@@ -17,3 +17,11 @@
   transform: translateX(-50%);
   z-index: 99999;
 }
+
+@media screen and (max-width: 1068px) {
+  .search-bar {
+    width: 80%;
+    max-width: 600px;
+    top: 370px;
+  }
+}
