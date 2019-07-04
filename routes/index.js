@@ -29,8 +29,6 @@ const Recipe = require("../models/Recipe");
 // //   Region: "text",
 // //   image: "text"
 // // });
-
-=======
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
