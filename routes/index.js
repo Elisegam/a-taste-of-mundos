@@ -41,16 +41,20 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-/* GET home page */
+/* GET see-moire page */
 router.get("/see-more", (req, res, next) => {
   res.render("see-more");
 });
 
-/* GET home page */
+/* GET favourite-foods */
 router.get("/favourite-foods", (req, res, next) => {
   res.render("favourite-foods");
 });
-module.exports = router;
+
+/* GET favourite-foods */
+router.get("/result", (req, res, next) => {
+  res.render("result");
+});
 
 var cookie = new Recipe({
   Name: "Cookie",

@@ -19,7 +19,7 @@
   padding: 40px 80px;
 }
 .white {
-  color: #fff;
+  color: #fff !important;
 }
 .input {
   outline: none;

@@ -3,17 +3,17 @@
 }
 .bloc-content-ingre {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  justify-content: space-between;
 }
 
 .bloc-img-recipe img {
-  width: 850px;
+  width: 820px;
 }
 
 .bloc-description-recipe {
+  margin-top: 50px;
   padding: 50px;
+  background: #fbfbfb;
 }
 
 .title {
@@ -41,17 +41,13 @@
 .bloc-flag img {
   width: 150px;
   height: 100px;
-  margin: auto;
   margin-bottom: 20px;
-  display: block;
 }
 
 .ingredients {
   width: 350px;
   opacity: 1 !important;
   padding: 20px;
-  background: #fff;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 .container-ingredients {
@@ -62,6 +58,7 @@
 }
 
 .list-ingredients {
+  width: 250px;
   margin-bottom: 5px;
   line-height: 1.7;
   text-align: left;
