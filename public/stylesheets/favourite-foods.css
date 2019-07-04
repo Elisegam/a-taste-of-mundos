@@ -36,3 +36,20 @@
 .black {
   color: #000 !important;
 }
+
+@media screen and (max-width: 1068px) {
+  .fav {
+    width: 250px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .fav {
+    width: 90%;
+    margin: 0 !important;
+    display: block;
+  }
+}
