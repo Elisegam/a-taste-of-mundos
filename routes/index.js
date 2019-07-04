@@ -2,18 +2,19 @@ const express = require("express");
 const router = new express.Router();
 const mongoose = require("mongoose");
 
-const Recipe = require("../models/Recipe");
+const recipeModel = require("../models/Recipe");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.post("/", (req, res, next) => {
-  // console.log(req.body);
-  const query = req.body.query;
+router.post("/search-recipes", (req, res, next) => {
+  // return console.log(req.body);
+  const query = req.body.search;
   const regex = new RegExp(query, "i");
-  Recipe.find({ Name: regex })
+  recipeModel
+    .find({ name: regex })
     .then(recipes => {
       res.send(recipes);
     })
@@ -31,15 +32,7 @@ router.post("/", (req, res, next) => {
 //     .catch(err => console.error(err));
 // });
 
-<<<<<<< HEAD
 /* GET home page */
-=======
-router.get("/", (req, res, next) => {
-  res.render("index");
-});
-
-/* GET see-moire page */
->>>>>>> 2f631c4d36ba510a9d2cbdbb4895ed1bfb306b6d
 router.get("/see-more", (req, res, next) => {
   res.render("see-more");
 });

@@ -1,5 +1,5 @@
 <section class="add-form">
-  <form action="/add-recipe" method="POST" class="container-form bg-form">
+  <form action="/recipe-add" method="POST" class="container-form bg-form">
     <div class="title-form">
       <h2>Insert your recipies</h2>
     </div>
@@ -7,7 +7,7 @@
     <input type="text" name="region" placeholder="Region" class="input"><br />
     <textarea name="description" id="" cols="30" rows="10" placeholder="Description"></textarea><br />
     <textarea name="ingredients" id="" cols="30" rows="10" placeholder="Ingredients"></textarea><br />
-    <input type="file" class="btn-add-img" /><br />
+    <input type="file" class="btn-add-img" name="image" /><br />
     <button class="submit-btn">Submit</button>
   </form>
 </section>

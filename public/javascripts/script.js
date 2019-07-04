@@ -8,9 +8,9 @@ AOS.init({
 });
 
 const input = document.getElementById("search-bar");
-const list = document.getElementById("results");
+const list = document.getElementById("panel");
 const panel = document.getElementById("panel");
-
+console.log(list);
 const miamAPI = axios.create({
   baseURL: document.getElementById("site_url").content
 });
@@ -24,30 +24,39 @@ input.oninput = sendQuery;
 
 function sendQuery(evt) {
   miamAPI
-    .post("/", { query: evt.target.value })
+    .post("/search-recipes", { search: evt.target.value })
     .then(res => {
-      // res = query;
-      // displayFood(res);
-      input.onkeyup = evt => showResult(res.data);
+      input.onkeyup = evt => {
+        showResult(res.data);
+      };
     })
     .catch(err => console.log(err));
 }
 
-function displayFood(food) {
-  panel.removeAttribute("hide");
+function displayFood(recipes) {
+  //console.log("good so far");
+
+  panel.classList.remove("hide");
   list.innerHTML = "";
-  food.forEach(food => {
-    list.innerHTML += `<li class="item recipe">${food}</li>
+  recipes.forEach(food => {
+    //console.log(food);
+
+    list.innerHTML += `<li class="item recipe">${food.name}
     <div class="bloc-recipies">
           <span class="img-recipies">
             <img src=${food.image} alt="">
           </span>
           <span class="name-recipies">${food.name}</span>
-          <a href="/see-more/:${food.id}" class="see-more-link">See more</a>
-        </div>`;
+          <a href="/see-more/${food._id}" class="see-more-link">See more</a>
+        </div></li>`;
   });
 }
 
 function showResult(results) {
   console.log(results);
+  if (results.length) {
+    displayFood(results);
+  } else {
+    console.warn("no results");
+  }
 }
