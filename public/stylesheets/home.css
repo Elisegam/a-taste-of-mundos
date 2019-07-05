@@ -14,14 +14,16 @@
 }
 
 .informations {
+  width: 1350px;
+  margin: auto;
   padding: 50px;
 }
 
 .bloc-info {
   cursor: pointer;
   position: relative;
-  width: 340px;
-  height: 340px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
   margin-top: 20px;
   background: #f44336;
@@ -37,6 +39,10 @@
 
 .sp-between {
   justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 .title-info {

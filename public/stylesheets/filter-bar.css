@@ -18,6 +18,14 @@
   z-index: 99999;
 }
 
+.search-bar:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  font-size: 2em;
+}
+
 @media screen and (max-width: 1068px) {
   .search-bar {
     width: 80%;

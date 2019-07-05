@@ -1,8 +1,9 @@
 .add-form {
   background: #fff;
+  margin-top: 100px;
 }
 .container-form {
-  width: 700px;
+  width: 700px !important;
   margin: auto;
   margin-top: 80px;
   font-family: "calibri" !important;
@@ -26,7 +27,9 @@
   border: none;
   border-bottom: 1px solid #d8d8d8;
   background: transparent;
-  width: 100%;
+  width: 50%;
+  margin: auto;
+  display: block;
   padding: 15px;
   margin-bottom: 15px;
 }
@@ -35,7 +38,9 @@ textarea {
   resize: none;
   outline: none;
   padding: 10px 15px;
-  width: 100%;
+  width: 50%;
+  margin: auto;
+  display: block;
   border: none;
   border-bottom: 1px solid #d8d8d8;
   margin-bottom: 10px;
