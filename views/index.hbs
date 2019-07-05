@@ -1,4 +1,4 @@
-<nav class="nav">
+{{!-- <nav class="nav">
   <div class="container">
     <div class="flex-elem">
       <a href="/">
@@ -16,9 +16,18 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> --}}
 <!-- END NAV ELEM -->
-<header class="bg-header"></header>
+
+<!-- FILTER BAR -->
+<form class="bg-header" action="/search-recipes" method="POST" id="search_form">
+  <div class="container-search-bar">
+    <input type="text" id="search-bar" name="search" placeholder="Find your recipe" class="search-bar">
+    <!--<input type="submit" value="Search" class="">-->
+</form>
+{{!-- <header class="bg-header"></header> --}}
+
+</div>
 <div class="informations container-formations">
   <div class="flexed-item sp-between">
     <div class="bloc-info">
@@ -43,4 +52,3 @@
       </div>
     </div>
   </div>
-</div>
