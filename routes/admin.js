@@ -11,6 +11,7 @@ const router = new express.Router();
 
 //MODEL
 const recipeModel = require("../models/Recipe");
+const uploader = require("./../config/cloudinary");
 
 /* GET see-more */
 router.get("/see-more", (req, res, next) => {
@@ -22,20 +23,27 @@ router.get("/add-recipies", (req, res, next) => {
   res.render("add-recipies");
 });
 
-router.post("/add-recipies", (req, res) => {
-  const { name, region, description, ingredients, image } = req.body;
+router.post("/add-recipe", uploader.single("image"), (req, res) => {
+  // return console.log(req.body);
+  console.log("ici", req.file);
+
+  const { name, region, description, ingredients } = req.body;
+
+  const newRecipe = {
+    name,
+    region,
+    description,
+    ingredients
+  };
+
+  if (req.file) newRecipe.image = req.file.secure_url;
+
   recipeModel
-    .create({
-      name,
-      region,
-      description,
-      ingredients,
-      image
-    })
+    .create(newRecipe)
     .then(recipe => {
-      console.log("yes", recipe.name);
+      // console.log("yes", recipe.name);
       res.redirect("/manage-recipies");
-      res.render("user_page", { recipe });
+      // res.render("user_page", { recipe });
     })
     .catch(err => {
       res.redirect("/");

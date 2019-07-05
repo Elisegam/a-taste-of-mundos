@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 
 const recipeModel = require("../models/Recipe");
 
-<<<<<<< HEAD
 // /* GET home page */
 // router.get("/", (req, res, next) => {
 //   var q = req.query.q;
@@ -30,7 +29,6 @@ const recipeModel = require("../models/Recipe");
 // //   image: "text"
 // // });
 
-=======
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
@@ -60,19 +58,20 @@ router.post("/search-recipes", (req, res, next) => {
 // });
 
 /* GET home page */
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 9bd54dafb27cea82b67467deaddf33e5e2773183
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-/* GET see-moire page */
->>>>>>> 2f631c4d36ba510a9d2cbdbb4895ed1bfb306b6d
->>>>>>> 4aedc54a1f700265fca53cf5d34ac5bb37d66c6c
-router.get("/see-more", (req, res, next) => {
-  res.render("see-more");
+/* GET see-more page */
+router.get("/see-more/:_id", (req, res, next) => {
+  recipeModel
+    .findById(req.params._id)
+    .then(recipe => {
+      res.render("see-more", { recipe });
+    })
+    .catch(err => {
+      console.log(error);
+    });
 });
 
 /* GET favourite-foods */

@@ -8,8 +8,8 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const path = require("path");
 const logger = require("morgan");
-authRoutes = require("./routes/auth-route");
-mongoose.Promise = Promise;
+
+// mongoose.Promise = Promise;
 
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -62,14 +62,9 @@ hbs.registerPartials(__dirname + "/views/partials");
 
 const index = require("./routes/index");
 const admin = require("./routes/admin");
-
-const basePageRouter = require("./routes/index");
-const adminRouter = require("./routes/admin");
-
+authRoutes = require("./routes/auth-route");
 app.use(index);
 app.use(admin);
 app.use(authRoutes);
-app.use(basePageRouter);
-app.use(adminRouter);
 
 module.exports = app;
