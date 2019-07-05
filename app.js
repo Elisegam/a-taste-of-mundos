@@ -26,7 +26,7 @@ mongoose
   .catch(err => {
     console.error("Error connecting to mongo", err);
   });
-require("./bin/worldApi");
+
 const app_name = require("./package.json").name;
 const debug = require("debug")(
   `${app_name}:${path.basename(__filename).split(".")[0]}`
