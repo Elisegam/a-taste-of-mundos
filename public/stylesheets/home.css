@@ -8,8 +8,58 @@
 .bg-header {
   background-image: url("https://i1.wp.com/everwideningcircles.com/wp-content/uploads/2017/08/earth-in-spices.jpg?resize=1600%2C900&ssl=1");
   background-size: cover;
-  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: center;
-  height: 120vh;
+  background-position: top;
+  height: 100vh;
+}
+
+.informations {
+  padding: 50px;
+}
+
+.bloc-info {
+  cursor: pointer;
+  position: relative;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  margin-top: 20px;
+  background: #f44336;
+  color: #fff;
+  padding: 25px;
+}
+
+.bloc-info:hover {
+  transition: 0.3s ease;
+  opacity: 0.9;
+  background: #111;
+}
+
+.sp-between {
+  justify-content: space-between;
+}
+
+.title-info {
+  font-size: 1.4em;
+  text-align: center;
+  font-family: "overlock";
+  font-weight: bold;
+}
+
+.txt-info {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.main {
+  margin-top: 50px;
+}
+.icon {
+  font-size: 4em;
+  color: #fff;
+  text-align: center;
+  display: block;
+  margin-top: 20px;
 }
