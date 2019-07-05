@@ -64,13 +64,28 @@ router.post("/add-recipe", guardRoute, uploader.single("image"), (req, res) => {
 //   Comment.create()
 // })
 
+<<<<<<< HEAD
 /* GET Manage recipies */
 router.get("/manage-recipies", guardRoute, (req, res, next) => {
+=======
+router.get("/recipe-edit", (req, res) => {
+  res.render("recipe_edit");
+});
+//  EDIT recipes
+router.post("/recipe-edit/:id", (req, res) => {
+>>>>>>> e9dd6ecd4c1e922bf76c84dd50efc164c3abad8f
   recipeModel
     .find()
     .populate("region")
     .then(recipe => {
+<<<<<<< HEAD
       res.render("manage-recipies", { recipe });
+=======
+      res.render("recipe_edit", { recipe });
+    })
+    .catch(err => {
+      res.redirect("/manage-recipes");
+>>>>>>> e9dd6ecd4c1e922bf76c84dd50efc164c3abad8f
     });
 });
 

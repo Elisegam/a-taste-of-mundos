@@ -1,0 +1,13 @@
+<section class="recipe-edit container-form">
+  <div class="title-form">
+    <h2>Edit your recipies</h2>
+  </div>
+  <form action="/recipe-edit/{{this._id}}" method="POST" class="bg-form" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Name" class="input"><br />
+    <input type="text" name="region" placeholder="Region" class="input"><br />
+    <textarea name="description" id="" cols="30" rows="10" placeholder="Description"></textarea><br />
+    <textarea name="ingredients" id="" cols="30" rows="10" placeholder="Ingredients"></textarea><br />
+    <input type="file" class="btn-add-img" name="image" /><br />
+    <button class="submit-btn">Add to manage</button>
+  </form>
+</section>
