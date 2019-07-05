@@ -10,7 +10,7 @@ AOS.init({
 const input = document.getElementById("search-bar");
 const list = document.getElementById("panel");
 const panel = document.getElementById("panel");
-console.log(list);
+// console.log(list);
 const miamAPI = axios.create({
   baseURL: document.getElementById("site_url").content
 });
@@ -37,7 +37,7 @@ function displayFood(recipes) {
   //console.log("good so far");
 
   panel.classList.remove("hide");
-  list.innerHTML = "";
+  // list.innerHTML = "";
   recipes.forEach(food => {
     //console.log(food);
 
@@ -48,12 +48,13 @@ function displayFood(recipes) {
           </span>
           <span class="name-recipies">${food.name}</span>
           <a href="/see-more/${food._id}" class="see-more-link">See more</a>
-        </div></li>`;
+        </div><a href="/result" class="see-more-link white">See more</a></li>`;
   });
 }
 
 function showResult(results) {
-  console.log(results);
+  console.log("results");
+  list.innerHTML = "";
   if (results.length) {
     displayFood(results);
   } else {

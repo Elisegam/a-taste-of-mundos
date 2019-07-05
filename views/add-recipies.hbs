@@ -4,14 +4,14 @@
       <h2>Insert your recipies</h2>
     </div>
     <input type="text" name="name" placeholder="Recipe"><br />
-    <input type="text" name="region" placeholder="Region" class="input"><br />
+    {{!-- <input type="text" name="region" placeholder="Region" class="input"><br /> --}}
 
-    {{!-- <label for="country-select" class="input">Select a country:</label>
+    {{!-- <label for="country-select" class="input">Select a country:</label> --}}
 
-    <select id="country-select">
-      <option value="">--Please choose a country--</option>
-      {{#each country}}<option value="{{this._id}}">{{this.name}}</option>{{/each}}
-    </select> --}}
+    <select id="country-select" name="region">
+      <option value="-1" disabled>--Please choose a country--</option>
+      {{#each country}}<option value={{this._id}}>{{this.name}}</option>{{/each}}
+    </select><br>
 
     <textarea name="description" id="" cols="30" rows="10" placeholder="Description"></textarea><br />
     <textarea name="ingredients" id="" cols="30" rows="10" placeholder="Ingredients"></textarea><br />

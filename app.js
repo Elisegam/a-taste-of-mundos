@@ -4,6 +4,9 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const favicon = require("serve-favicon");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
 const hbs = require("hbs");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -35,7 +38,18 @@ app.locals.site_url = process.env.SITE_URL;
 
 // Middleware Setup
 // gui était par ici : ) =>
-app.use(logger("dev"));
+// app.use(logger("dev"));
+
+app.use(
+  session({
+    secret: "basic-auth-secret",
+    cookie: { maxAge: 60000 },
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 // 1 day
+    })
+  })
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

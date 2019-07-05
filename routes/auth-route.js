@@ -9,7 +9,7 @@ authRoutes.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
-authRoutes.post("auth/signup", (req, res, next) => {
+authRoutes.post("/auth/signup", (req, res, next) => {
   console.log(req.body);
   const username = req.body.username;
   const last_name = req.body.last_name;
@@ -53,7 +53,6 @@ authRoutes.post("auth/signup", (req, res, next) => {
 
 // LOG IN
 authRoutes.get("/login", (req, res, next) => {
-  // console.log(res);
   res.render("auth/login");
 });
 
@@ -71,10 +70,12 @@ authRoutes.post("/login", (req, res, next) => {
     .then(user => {
       if (!user) {
         res.render("auth/login", {
-          errorMessage: "The username doesn't exist."
+          errorMessage: "The username or password doesn't exist."
         });
         return;
       }
+      console.log("all good");
+
       if (bcrypt.compareSync(userPassword, user.password)) {
         console.log(user.password);
         console.log(req.session.currentUser);

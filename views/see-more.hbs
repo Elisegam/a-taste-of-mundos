@@ -5,9 +5,9 @@
     </div>
     <div class="bloc-ingredient-country-recipe">
       <div class="ingredients">
-        <h2 class="title">Vietnam</h2>
+        <h2 class="title">{{recipe.region.name}}</h2>
         <div class="bloc-flag">
-          <img src="https://chine.in/usb/images/upload/images/flag-china-XL.jpg" alt="">
+          <img src="{{recipe.region.flag}}" alt="">
         </div>
         <div class="bloc-ingredient">
           <h3 class="bold black">ingredients:</h3>
@@ -23,11 +23,7 @@
   </div>
   <div class="bloc-description-recipe container" data-aos="fade-right">
     <h2 class="title center">{{recipe.name}}</h2>
-    <p class="justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa modi quod ut possimus perspiciatis
-      fuga, nam eius unde reprehenderit eos recusandae dolor a minus mollitia animi necessitatibus, provident numquam
-      alias! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa modi quod ut possimus perspiciatis
-      fuga, nam eius unde reprehenderit eos recusandae dolor a minus mollitia animi necessitatibus, provident numquam
-    </p>
+    <p class="justify">{{recipe.description}}</p>
   </div>
 </section>
 <br />
@@ -38,6 +34,7 @@
     </div>
 
     <input type="text" name="username" placeholder="Username"><br />
-    <textarea name="description" id="" cols="30" rows="10" placeholder="description" <button class="submit-btn">Submit</button>
+    <br name="description" id="" cols="30" rows="10" placeholder="description"><br>
+    <input type="text" name="comment" placeholder="Comment"><br><button class="submit-btn">Submit</button>
   </form>
 </section>

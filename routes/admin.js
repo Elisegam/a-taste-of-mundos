@@ -1,17 +1,21 @@
 const express = require("express");
 const router = new express.Router();
-
+const guardRoute = require("./../utils/route-guard");
 // router.use((req, res, next) => {
 //   if (req.session.currentUser) {
+//     return console.log("c'est là");
 //     next();
 //   } else {
-//     res.redirect("/login");
+//     // return console.log("c'est ici");
+//     if (req.url !== "/login" || req.url !== "/signup") res.redirect("/login");
+//     else next();
 //   }
 // });
 
 //MODEL
 const recipeModel = require("../models/Recipe");
 const uploader = require("./../config/cloudinary");
+const countryModel = require("../models/Country");
 
 /* GET see-more */
 router.get("/see-more", (req, res, next) => {
@@ -19,13 +23,18 @@ router.get("/see-more", (req, res, next) => {
 });
 
 /* GET add recipe page */
-router.get("/add-recipies", (req, res, next) => {
-  res.render("add-recipies");
+router.get("/add-recipies", guardRoute, (req, res) => {
+  countryModel
+    .find()
+    .then(country => {
+      res.render("add-recipies", { country });
+    })
+    .catch(e => console.log(e));
 });
 
-router.post("/add-recipe", uploader.single("image"), (req, res) => {
+router.post("/add-recipe", guardRoute, uploader.single("image"), (req, res) => {
   // return console.log(req.body);
-  console.log("ici", req.file);
+  // return console.log("ici", req.body);
 
   const { name, region, description, ingredients } = req.body;
 
@@ -50,24 +59,32 @@ router.post("/add-recipe", uploader.single("image"), (req, res) => {
     });
 });
 
+// router.post("/see-more"(req,res)=>{
+//   const{user,comment}=req.body;
+//   Comment.create()
+// })
+
 /* GET Manage recipies */
-router.get("/manage-recipies", (req, res, next) => {
-  recipeModel.find().then(recipe => {
-    res.render("manage-recipies", { recipe });
-  });
+router.get("/manage-recipies", guardRoute, (req, res, next) => {
+  recipeModel
+    .find()
+    .populate("region")
+    .then(recipe => {
+      res.render("manage-recipies", { recipe });
+    });
 });
 
 //  EDIT recipes
-router.post("/recipe-edit/:id", (req, res) => {
-  recipeModel
-    .findById(req.params.id)
-    .then(recipe => {
-      res.render("recipe-edit", { recipe });
-    })
-    .catch(err => {
-      res.redirect("/manage-recipes");
-    });
-});
+// router.post("/recipe-edit/:id", (req, res) => {
+//   recipeModel
+//     .findById(req.params.id)
+//     .then(recipe => {
+//       res.render("recipe-edit", { recipe });
+//     })
+//     .catch(err => {
+//       res.redirect("/manage-recipes");
+//     });
+// });
 
 router.post("/recipe-edit/:id", (req, res) => {
   recipeModel
@@ -82,7 +99,7 @@ router.post("/recipe-edit/:id", (req, res) => {
 });
 
 // DELETE recipes
-router.get("/recipe-delete/:id", (req, res) => {
+router.get("/recipe-delete/:id", guardRoute, (req, res) => {
   recipeModel
     .findByIdAndDelete(req.params.id, req.body)
     .then(recipe => {

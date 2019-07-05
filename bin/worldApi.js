@@ -2257,7 +2257,7 @@ const country = [
   ]
 
   countryModel
-  .create(country)
+  .insertMany(country)
   .then(res => {
     console.log("country created");
   })

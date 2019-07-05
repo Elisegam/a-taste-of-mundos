@@ -3,9 +3,9 @@
   src: "fonts/TypesauceRegular-V1.0.0_by_MaxiGamer.ttf";
 }
 
-body {
+/* body {
   font-family: "Typesauce";
-}
+} */
 
 /* @extend display-flex; */
 display-flex,

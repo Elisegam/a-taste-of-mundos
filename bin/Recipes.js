@@ -5,26 +5,26 @@ const dbName = "a-taste-of-the-world";
 mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });
 
 const recipes = [
-  {
-    name: "Cookie",
-    region: "America",
-    description: "Delicious cookies",
-    ingredients: [
-      "1 cup salted butter softened",
-      "1 cup white (granulated) sugar",
-      "1 cup light brown sugar packed",
-      "2 tsp pure vanilla extract",
-      "2 large eggs",
-      "3 cups all-purpose flour",
-      "1 tsp baking soda",
-      "½ tsp baking powder"
-    ],
-    image:
-      "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg"
-  },
+  // {
+  //   name: "Cookie",
+  //   region: "United States of America",
+  //   description: "Delicious cookies",
+  //   ingredients: [
+  //     "1 cup salted butter softened",
+  //     "1 cup white (granulated) sugar",
+  //     "1 cup light brown sugar packed",
+  //     "2 tsp pure vanilla extract",
+  //     "2 large eggs",
+  //     "3 cups all-purpose flour",
+  //     "1 tsp baking soda",
+  //     "½ tsp baking powder"
+  //   ],
+  //   image:
+  //     "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg"
+  // },
   {
     name: "Bibimbap",
-    region: "Asia/South-Korea",
+    region: "South-Korea",
     description: "Korean rice and legumes",
     ingredients: [
       "Riz",
