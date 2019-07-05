@@ -2,7 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const mongoose = require("mongoose");
 
-const recipeModel = require("../models/Recipe");
+const Recipe = require("../models/Recipe.js");
 
 // /* GET home page */
 // router.get("/", (req, res, next) => {
@@ -29,9 +29,16 @@ const recipeModel = require("../models/Recipe");
 // //   image: "text"
 // // });
 
+<<<<<<< HEAD
 /* GET home page */
+=======
+>>>>>>> a1fc00e675bd2772e70e7599d0fc508acddcf223
 router.get("/", (req, res, next) => {
   res.render("index");
+});
+
+router.get("/result", (req, res, next) => {
+  res.render("result");
 });
 
 router.post("/search-recipes", (req, res, next) => {
@@ -78,8 +85,5 @@ router.get("/see-more/:_id", (req, res, next) => {
 router.get("/favourite-foods", (req, res, next) => {
   res.render("favourite-foods");
 });
-module.exports = router;
 
-router.get("/result", (req, res, next) => {
-  res.render("result");
-});
+module.exports = router;
