@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const countryModel = require("../models/Country");
 
-const dbName = "a-taste-of-the-world";
-mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });
+// const dbName = "a-taste-of-the-world";
+// mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });
 
 const country = [
   {
