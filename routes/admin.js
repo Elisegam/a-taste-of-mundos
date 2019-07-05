@@ -57,12 +57,15 @@ router.get("/manage-recipies", (req, res, next) => {
   });
 });
 
+router.get("/recipe-edit", (req, res) => {
+  res.render("recipe_edit");
+});
 //  EDIT recipes
 router.post("/recipe-edit/:id", (req, res) => {
   recipeModel
     .findById(req.params.id)
     .then(recipe => {
-      res.render("recipe-edit", { recipe });
+      res.render("recipe_edit", { recipe });
     })
     .catch(err => {
       res.redirect("/manage-recipes");
