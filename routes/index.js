@@ -60,10 +60,21 @@ router.post("/search-recipes", (req, res, next) => {
 //     .catch(err => console.error(err));
 // });
 
-/* GET see-more page */
+/* GET home page */
+router.get("/", (req, res, next) => {
+  res.render("index");
+});
 
-router.get("/see-more", (req, res, next) => {
-  res.render("see-more");
+/* GET see-more page */
+router.get("/see-more/:_id", (req, res, next) => {
+  recipeModel
+    .findById(req.params._id)
+    .then(recipe => {
+      res.render("see-more", { recipe });
+    })
+    .catch(err => {
+      console.log(error);
+    });
 });
 
 /* GET favourite-foods */

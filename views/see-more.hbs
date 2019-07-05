@@ -1,8 +1,7 @@
-{{#each recipe}}
 <section class="see-more-about-recipies container">
   <div class="bloc-content-ingre">
     <div class="bloc-img-recipe">
-      <img src="{{this.image}}" alt="">
+      <img src="{{recipe.image}}" alt="">
     </div>
     <div class="bloc-ingredient-country-recipe">
       <div class="ingredients">
@@ -12,24 +11,18 @@
         </div>
         <div class="bloc-ingredient">
           <h3 class="bold black">ingredients:</h3>
-          <ul class="container-ingredients center">{{this.ingredients}}</ul>
-          {{!-- <ul class="container-ingredients center">
-            <li class="list-ingredients">- 500 Riz blanc</li>
-            <li class="list-ingredients">- 125g de jdon jdon</li>
-            <li class="list-ingredients">- 250g de petits pois frais écossés</li>
-            <li class="list-ingredients">- 6 cuillières à soupe d'huile</li>
-            <li class="list-ingredients">- 1 grosse gousse d'aile écrasée</li>
-            <li class="list-ingredients">- 1 bouquet garni</li>
-            <li class="list-ingredients">- 1 piment bouc</li>
-            <li class="list-ingredients">- Beurre</li>
-            <li class="list-ingredients">- Sel et poivre</li>
-          </ul> --}}
+          <ul class="container-ingredients center">
+            {{#each recipe.ingredients}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+
         </div>
       </div>
     </div>
   </div>
   <div class="bloc-description-recipe container" data-aos="fade-right">
-    <h2 class="title center">{{this.name}}</h2>
+    <h2 class="title center">{{recipe.name}}</h2>
     <p class="justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa modi quod ut possimus perspiciatis
       fuga, nam eius unde reprehenderit eos recusandae dolor a minus mollitia animi necessitatibus, provident numquam
       alias! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa modi quod ut possimus perspiciatis
@@ -38,7 +31,6 @@
   </div>
 
 </section>
-{{/each}}
 
 {{!-- <section class="see-more-about-recipies container">
   <div class="bloc-content-ingre">

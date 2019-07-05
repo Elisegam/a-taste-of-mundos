@@ -1,10 +1,18 @@
-<section class="add-form">
-  <form action="/recipe-add" method="POST" class="container">
+<section class="add-form container-form ">
+  <form action="/add-recipe" method="POST" class="bg-form" enctype="multipart/form-data">
     <div class="title-form">
       <h2>Insert your recipies</h2>
     </div>
-    <input type="text" name="name" placeholder="Recipe" class="input"><br />
+    <input type="text" name="name" placeholder="Recipe"><br />
     <input type="text" name="region" placeholder="Region" class="input"><br />
+
+    {{!-- <label for="country-select" class="input">Select a country:</label>
+
+    <select id="country-select">
+      <option value="">--Please choose a country--</option>
+      {{#each country}}<option value="{{this._id}}">{{this.name}}</option>{{/each}}
+    </select> --}}
+
     <textarea name="description" id="" cols="30" rows="10" placeholder="Description"></textarea><br />
     <textarea name="ingredients" id="" cols="30" rows="10" placeholder="Ingredients"></textarea><br />
     <input type="file" class="btn-add-img" name="image" /><br />

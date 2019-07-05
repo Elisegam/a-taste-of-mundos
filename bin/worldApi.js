@@ -1,3 +1,9 @@
+const mongoose = require("mongoose");
+const countryModel = require("../models/Country");
+
+const dbName = "a-taste-of-the-world";
+mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });
+
 const country = [
   {
   flag: "https://restcountries.eu/data/afg.svg",
@@ -2250,5 +2256,13 @@ const country = [
   }
   ]
 
-  module.exports = country;
-  //https://raw.githubusercontent.com/divyabiyani/Countries-Flag-API/master/Countries.json
+  countryModel
+  .create(country)
+  .then(res => {
+    console.log("country created");
+  })
+  .catch(err => {
+    console.log(error), err;
+  });
+
+  

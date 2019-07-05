@@ -1,12 +1,14 @@
 const mongoose = require("mongoose"); // Import mongoose
 const Schema = mongoose.Schema; // Assign the Schema
+// const Country = require("Country");
 
 const RecipeSchema = new Schema({
   name: { type: String, required: true },
   region: {
-    type: String,
-    required: true,
-    default: "Undefined"
+    // type: String,
+    // default: "Not defined"
+    type: Schema.Types.ObjectId,
+    ref: "countryModel"
   },
   description: {
     type: String,
@@ -16,6 +18,7 @@ const RecipeSchema = new Schema({
     type: Array,
     required: false
   },
+
   image: {
     type: String,
     default:
