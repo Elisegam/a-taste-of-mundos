@@ -12,11 +12,6 @@ const router = new express.Router();
 //MODEL
 const recipeModel = require("../models/Recipe");
 
-/* GET home page */
-// router.get("/", (req, res, next) => {
-//   res.render("index");
-// });
-
 /* GET see-more */
 router.get("/see-more", (req, res, next) => {
   res.render("see-more");
@@ -28,18 +23,19 @@ router.get("/add-recipies", (req, res, next) => {
 });
 
 router.post("/add-recipies", (req, res) => {
-  const { name, description, ingrédients, image } = req.body;
+  const { name, region, description, ingredients, image } = req.body;
   recipeModel
     .create({
       name,
+      region,
       description,
-      ingrédients,
+      ingredients,
       image
     })
     .then(recipe => {
-      console.log(recipe);
+      console.log("yes", recipe.name);
       res.redirect("/manage-recipies");
-      res.render("recipe", { recipe });
+      res.render("user_page", { recipe });
     })
     .catch(err => {
       res.redirect("/");
@@ -88,6 +84,16 @@ router.get("/recipe-delete/:id", (req, res) => {
     .catch(err => {
       console.log("error");
     });
+});
+
+//SHOW recipes
+router.get("/result", (req, res) => {
+  recipeModel.find();
+  then(recipe => {
+    res.render("user_page", { recipe });
+  }).catch(err => {
+    console.log("error");
+  });
 });
 
 module.exports = router;

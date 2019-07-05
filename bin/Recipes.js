@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Recipe = require("../models/Recipe");
+const recipeModel = require("../models/Recipe");
 
 const dbName = "a-taste-of-the-world";
 mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });
@@ -9,7 +9,7 @@ const recipes = [
     name: "Cookie",
     region: "America",
     description: "Delicious cookies",
-    ingrédients: [
+    ingredients: [
       "1 cup salted butter softened",
       "1 cup white (granulated) sugar",
       "1 cup light brown sugar packed",
@@ -20,13 +20,13 @@ const recipes = [
       "½ tsp baking powder"
     ],
     image:
-      "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjhou-cjpvjAhWSMBQKHYTIDqAQjRx6BAgBEAU&url=https%3A%2F%2Fcuisine.journaldesfemmes.fr%2Frecette%2F310548-american-cookies&psig=AOvVaw1XbF1ux9OAXkq1Lq1BQ-Hv&ust=1562324442016491"
+      "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg"
   },
   {
     name: "Bibimbap",
     region: "Asia/South-Korea",
     description: "Korean rice and legumes",
-    ingrédients: [
+    ingredients: [
       "Riz",
       "2 carottes",
       "2 courgettes",
@@ -41,7 +41,7 @@ const recipes = [
   }
 ];
 
-Recipe.create(recipes, err => {
+recipeModel.create(recipes, err => {
   if (err) {
     throw err;
   }
